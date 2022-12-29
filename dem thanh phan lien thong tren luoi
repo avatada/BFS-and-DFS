@@ -1,0 +1,62 @@
+/*
+    6 6
+    x x x o o o
+    o o x o o o
+    o x x x x o
+    x x o x o x
+    x o x x o x
+    dem thanh phan lien thong tren luoi
+     => tim bao nhieu doan co chu x ...
+*/
+#define FOR(i,a,b) for(i=a;i<=b;i++)
+#define FORR(i,a,b) for(i=a;i>=b;i--)
+#define au auto
+#define el endl;
+#include <bits/stdc++.h>
+typedef long long ll;
+const long long L= 1e4+5;
+const long long N= 1e6+5;
+using namespace std;
+ll n,k,sum,ans,j,dem,i,m,q,p,x,u,minn,t,y,ex1,ex2,ma,l,r,g,tami,tamj;
+string w;
+ll b[N],c[N],d[N]; char a[L][L];
+ll dx[4] = {-1,0,0,1};
+ll dy[4] = {0,-1,1,0};
+bool vst[L][L];
+void dfs(ll i, ll j){
+    cout<<i<<" "<<j<<endl;
+    vst[i][j] = true;
+    FOR(k,1,4){
+        tami = i + dx[k];
+        tamj = j + dy[k];
+        if(tami >= 1 && tami <= n && tamj >= 1 && tamj <= m && a[tami][tamj] == 'x' ){
+            dfs(tami,tamj);
+        }
+    }
+}
+void inp(){
+    cin>>n>>m;
+    FOR(i,1,n){
+        FOR(j,1,m){
+            cin>>a[i][j];
+        }
+    }
+    memset(vst,false,sizeof(vst));dem = 0;
+    FOR(i,1,n){
+        FOR(j,1,n){
+            if(a[i][j] == 'x' && !vst[i][j]){
+                cout<<"thanh phan lien thong thu: "<<dem+1<<endl;
+                dfs(i,j);
+                ++dem;
+            }
+        }
+    }
+    cout<<dem<<endl;
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);cin.tie(NULL);
+    freopen("input.INP", "r", stdin);
+    freopen("output.OUT", "w", stdout);
+    inp();
+}
