@@ -1,3 +1,4 @@
+
 /*
     6 6
     x x x o o o
@@ -9,19 +10,25 @@
      => tim bao nhieu doan co chu x ...
 */
 #define FOR(i,a,b) for(i=a;i<=b;i++)
-#define FORR(i,a,b) for(i=a;i>=b;i--)
-#define au auto
+#define FORR(i,a,b) for(i=b;i>=a;i++)
 #define el endl;
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 typedef long long ll;
 const long long L= 1e4+5;
 const long long N= 1e6+5;
+//@Whisper__
+#pragma GCC optimize("Ofast")
+const ll P[4] = {'U', 'L', 'R', 'D'};
+const ll dx[8] = {-1, -1, 1, 1, 0, 0, -1, 1};
+const ll dy[8] = {-1, 1, -1, 1, -1, 1, 0, 0};
+
+const ll oo = 1e18;
+const int MOD = 1e9 + 7;
+
 using namespace std;
 ll n,k,sum,ans,j,dem,i,m,q,p,x,u,minn,t,y,ex1,ex2,ma,l,r,g,tami,tamj;
 string w;
 ll b[N],c[N],d[N]; char a[L][L];
-ll dx[4] = {-1,0,0,1};
-ll dy[4] = {0,-1,1,0};
 bool vst[L][L];
 void dfs(ll i, ll j){
     cout<<i<<" "<<j<<endl;
@@ -56,7 +63,7 @@ void inp(){
 int main()
 {
     ios_base::sync_with_stdio(false);cin.tie(NULL);
-    freopen("input.INP", "r", stdin);
-    freopen("output.OUT", "w", stdout);
+    //freopen("input.INP", "r", stdin);
+    //freopen("output.OUT", "w", stdout);
     inp();
 }
