@@ -1,0 +1,64 @@
+/*
+bai tap: thuat toan tim kiem theo chieu sau tren do thi bang dfs
+input:
+    9 9
+
+    1 2
+    1 3
+    1 5
+    2 4
+    3 6
+    3 7
+    3 9
+    5 8
+    8 9
+output: 1 2 4 3 6 7 9 8 5
+*/
+#define FOR(i,a,b) for(i=a;i<=b;i++)
+#define FORR(i,a,b) for(i=b;i>=a;i++)
+#define el endl;
+#include<bits/stdc++.h>
+typedef long long ll;
+const long long L= 1e4+5;
+const long long N= 1e6+5;
+//@Whisper__
+#pragma GCC optimize("Ofast")
+const ll P[4] = {'U', 'L', 'R', 'D'};
+const ll dx[8] = {-1, -1, 1, 1, 0, 0, -1, 1};
+const ll dy[8] = {-1, 1, -1, 1, -1, 1, 0, 0};
+
+const ll oo = 1e18;
+const int MOD = 1e9 + 7;
+
+using namespace std;
+ll n,k,sum,ans,j,dem,i,m,q,p,x,u,minn,t,y,ex1,ex2,ma,l,r,g,tami,tamj;
+string w;
+ll b[N],c[N],d[N],a[N];
+vector<ll> adj[N];
+bool vst[L];
+void inp(){
+    cin>>n>>m;
+    FOR(i,1,m){
+        cin>>x>>y;
+        adj[x].push_back(y);
+        adj[y].push_back(x);
+    }
+    memset(vst,false,sizeof(vst));dem = 0;
+}
+void dfs(ll u){
+    cout<<u;
+    vst[u] = true;
+    for(int v : adj[u]){
+        if(!vst[v]){
+            dfs(v);
+        }
+    }
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);cin.tie(NULL);
+    //freopen("input.INP", "r", stdin);
+    //freopen("output.OUT", "w", stdout);
+    inp();
+    dfs(1);
+}
